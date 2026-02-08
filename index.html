@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <script src="index.js" type="module"></script>
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <span class="last-updated">Last updated on February 28 2026</span>
+        <div class="info-container">
+            <div class="row">
+                <span class="checkbox-container">
+                    <label for="past-checkbox">Include Past Pokemon</label>
+                    <input type="checkbox" id="past-checkbox"/>
+                </span>
+                <span>
+                    <label for="future-checkbox">Include Future Pokemon</label>
+                    <input type="checkbox" id="future-checkbox"/>
+                </span>
+            </div>
+            <div class="moves row"></div>
+            <div class="other row">
+                <div class="input-container">
+                    <label for="pokemon-name-search"><h2>Name</h2></label>
+                    <span>
+                        <input id="pokemon-name-search"/>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <td class="number">Number</td>
+                <td class="name">Pokemon</td>
+                <td class="type">Type</td>
+                <td class="ability">Abilities</td>
+                <td class="stat">Hp</td>
+                <td class="stat">Atk</td>
+                <td class="stat">Def</td>
+                <td class="stat">Spa</td>
+                <td class="stat">Spd</td>
+                <td class="stat">Spe</td>
+            </thead>
+            <tbody id="table">
+                <tr id="no-match-row" class="removed">
+                    <td>No Matching Pokemon</td>
+                </tr>
+            </tbody>
+        </table>
+        <template id="dropdown-template">
+            <span class="dropdown">
+                <h2 class="dropdown-title"></h2>
+                <div class="selected-options"></div>
+                <input class="menu-selector"/>
+                <div class="dropdown-menu removed"></div>
+            </span>
+        </template>
+    </body>
+</html>

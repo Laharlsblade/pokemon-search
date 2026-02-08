@@ -1,0 +1,292 @@
+html {
+    font-size: 10px;
+    text-align: center;
+
+    --selected-color: hsl(220, 60%, 40%);
+    --selected-highlight-color: hsl(220, 60%, 30%);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+input[type=checkbox] {
+    cursor: pointer;
+    margin-left: 2rem;
+}
+
+body {
+    align-items: center;
+    background: hsl(0, 0%, 8%);
+    color: hsl(0, 0%, 88%);
+    display: inline-flex;
+    flex-direction: column;
+    font-family: monospace;
+    height: 100vh;
+    justify-content: flex-start;
+    margin: 0;
+    overflow-x: auto;
+    position: relative;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+.row {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+label {
+    font-size: 1.6rem;
+}
+
+input {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    outline: none;
+}
+
+.input-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 143px;
+}
+
+.input-container h2 {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.input-container > span {
+    align-items: center;
+    display: flex;
+    flex: 1;
+}
+
+.input-container input {
+    width: 280px;
+}
+
+.checkbox-container {
+    margin: 0 7rem;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: fit-content;
+}
+
+.selected-options {
+    background: hsla(0, 0%, 60%, 0.2);
+    border: 1px solid hsl(0, 0%, 80%);
+    box-sizing: border-box;
+    flex-direction: column;
+    height: 10rem;
+    margin-bottom: 0.5rem;
+    overflow-wrap: anywhere;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 280px;
+}
+
+.selected-pill {
+    background: var(--selected-color);
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 35px;
+    margin: 0.5rem;
+    overflow: hidden;
+    padding: 0.5rem;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.dropdown-menu {
+    background: hsl(0, 0%, 12%);
+    border: 1px solid hsl(0, 0%, 80%);
+    box-sizing: border-box;
+    cursor: default;
+    font-size: 1.6rem;
+    left: 0;
+    max-height: min(50rem, 50vh);
+    overflow-y: auto;
+    position: absolute;
+    text-align: left;
+    top: calc(100% + 0.3rem);
+    width: 100%;
+    z-index: 1;
+}
+
+.dropdown-menu > div {
+    cursor: pointer;
+    padding: 0.3rem 0.8rem;
+}
+
+.dropdown-menu > div.no-match {
+    background: hsl(0, 0%, 12%);
+    cursor: default;
+}
+
+.dropdown-menu > div.no-match:hover {
+    background: hsl(0, 0%, 12%);
+}
+
+.dropdown-menu > div:hover, .dropdown-menu > .highlighted {
+    background: hsl(0, 0%, 18%);
+}
+
+.dropdown-menu > div.selected {
+    background: var(--selected-color);
+}
+
+.dropdown-menu > div.selected.highlighted {
+    background: var(--selected-highlight-color);
+}
+
+table {
+    cursor: default;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    font-size: 1.6rem;
+    margin: 2rem;
+    overflow: hidden;
+}
+
+thead {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+tbody {
+    border-bottom: 1px solid hsl(0, 0%, 50%);
+    display: flex;
+    flex-direction: column;
+}
+
+#table {
+    overflow-y: scroll;
+}
+
+tr {
+    display: flex;
+    min-height: 2.8rem;
+}
+
+td {
+    border: 1px solid hsl(0, 0%, 50%);
+    border-bottom-width: 0;
+    border-right-width: 0;
+    padding: 0.4rem 0.6rem;
+}
+
+tbody tr:first-of-type td {
+    border-top-width: 0;
+}
+
+thead td {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+tbody td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+td:last-of-type {
+    border-right-width: 1px;
+}
+
+thead tr {
+    border-bottom: 1px solid hsl(0, 0%, 50%);
+}
+
+#table tr:hover {
+    background: hsl(0, 0%, 14%);
+}
+
+td.number {
+    width: 65px;
+}
+
+td.name {
+    width: 225px;
+}
+
+td.type {
+    width: 200px;
+}
+
+td.ability {
+    width: 400px;
+}
+
+td.stat {
+    width: 40px;
+}
+
+tr#no-match-row > td {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    width: 100%;
+}
+
+tr#no-match-row:hover {
+    background: unset;
+}
+
+tbody td.number, tbody td.stat {
+    display: flex;
+    justify-content: center;
+}
+
+.at-least-input {
+    background: hsl(0, 0%, 25%);
+    border: 1px solid hsl(0, 0%, 60%);
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    margin-left: 0.6rem;
+    text-align: center;
+    width: 4rem;
+}
+
+.separator {
+    background: hsl(0, 0%, 70%);
+    height: 0.1rem;
+    margin: 2rem 0 1rem 0;
+    width: 90rem;
+}
+
+.removed {
+    display: none;
+}
+
+.last-updated {
+    font-size: 1.6rem;
+    position: fixed;
+    right: 1rem;
+    top: 0.5rem;
+    max-width: calc(50vw - 15rem);
+}
